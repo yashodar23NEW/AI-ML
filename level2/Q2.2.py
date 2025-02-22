@@ -8,6 +8,7 @@ df=pd.read_csv("w2_position_salaries-220925-153437.csv")
 df.head()
 
 
+
 from matplotlib import pyplot as plt
 plt.figure(figsize=(6,4))
 plt.plot(df['Level'],df['Salary'],'ro')
@@ -19,6 +20,7 @@ plt.show()
 
 X = df.iloc[:, 1:2].values  
 y = df.iloc[:, 2].values 
+#degree 1-linear Regression
 
 lin_reg = LinearRegression()
 lin_reg.fit(X, y)
@@ -29,7 +31,7 @@ print(f"R² Score (Linear Regression): {r2_score_lin_reg}")
 
 
 
-
+#degree 2-Polinomial
 poly_reg_2 = PolynomialFeatures(degree=2)
 X_poly_2 = poly_reg_2.fit_transform(X)
 lin_reg_2 = LinearRegression()
@@ -41,7 +43,7 @@ print(f"R² Score (Polynomial Regression, Degree 2): {r2_score_poly_2}")
 
 
 
-
+#degree 3-Polinomial
 poly_reg_3 = PolynomialFeatures(degree=3)
 X_poly_3 = poly_reg_3.fit_transform(X)
 lin_reg_3 = LinearRegression()
@@ -53,6 +55,7 @@ print(f"R² Score (Polynomial Regression, Degree 3): {r2_score_poly_3}")
 
 
 
+#degree 4-Polinomial
 
 poly_reg_4 = PolynomialFeatures(degree=4)
 X_poly_4 = poly_reg_4.fit_transform(X)
